@@ -1,0 +1,126 @@
+openapi: "3.1"
+info:
+  title: "Apidae Backend"
+  version: 1.0.0
+  contact:
+    email: "support@apidae.dev"
+  license: "MIT"
+servers:
+    - url: "api.apidae.dev"
+      description: "Apidae Server"
+basePath: "/v1"
+paths:
+  "/device/{serial}":
+    post:
+      tags:
+        - device
+      summary: Adds a DataPackage from a Device.
+      operationId: addDeviceInput
+      parameters:
+        - name: "serial"
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: '#/components/schemas/DeviceInputBody'
+      responses:
+        "200":
+          $ref: '#/components/responses/OkResponse'
+        "405":
+          $ref: '#/components/responses/BadRequestResponse'
+  "/device/register":
+    post:
+      tags:
+        - device
+      summary: Registers a Device.
+      operationId: registerDevice
+      requestBody:
+        $ref: '#/components/schemas/DeviceRegisterBody'
+      responses:
+        "200":
+          $ref: '#/components/responses/OkResponse'
+        "405":
+          $ref: '#/components/responses/BadRequestResponse'
+
+components:
+    schemas:
+      Device:
+        type: object
+        properties:
+          serial:
+            type: integer
+            format: int32
+          activation:
+            $ref: '#/components/schemas/DateTime'
+      DeviceInput:
+        type: object
+        properties:
+          device:
+            $ref: '#/components/schemas/Device'
+          sensorInputs:
+            type: array
+            items:
+              $ref: '#/components/schemas/SensorInput'
+      Sensor:
+        type: object
+        properties:
+          name:
+            type: string
+          code:
+            type: string
+          description:
+            type: string
+      SensorInput:
+        type: object
+        properties:
+          code:
+            type: string
+          value:
+            type: float
+          created:
+            $ref: '#/components/schemas/DateTime'
+      DateTime:
+        type: object
+        properties:
+          datetime:
+            type: string
+    responses:
+      OkResponse:
+        description: "Operation concluded successfully."
+      CreatedResponse:
+        description: "Ressource was created."
+      BadRequestResponse:
+        description: "The request was faulty and will not be processed."
+    parameters:
+      Serial:
+        name: "serial"
+        in: header
+        required: true
+        schema:
+          type: integer
+          format: int32
+    requestBodies:
+      DeviceInputBody:
+        description: "A package with data from a device. "
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceInput'
+      DeviceRegisterBody:
+        description: "First time message upon activating a device."
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Device'
+
+    securitySchemes:
+      "serial":
+        type: "apiKey"
+        name: "serial"
+        in: headers
+tags:
+  - device
+externalDocs:
+  - description: "Apidae user manual"
+    url: "doc.apidae.dev"
