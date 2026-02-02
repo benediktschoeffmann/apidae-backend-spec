@@ -1,0 +1,11 @@
+get:
+  tags:
+    - user
+  description: Logs an user out.
+  operationId: logout
+  requestBody:
+    content:    
+      application/json:
+        schema:
+          $ref: ../../requestBodies/LogoutRequestBody.yaml
+

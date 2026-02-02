@@ -1,0 +1,10 @@
+post:
+  tags:
+    - user
+  description: Logs an user in.
+  operationId: login
+  requestBody:
+    content:    
+      application/json:
+        schema:
+          $ref: ../../requestBodies/LoginRequestBody.yaml

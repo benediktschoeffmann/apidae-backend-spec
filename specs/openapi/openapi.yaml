@@ -1,0 +1,26 @@
+openapi: 3.1.0
+info:
+  $ref: "info.yaml"
+servers:
+  - url: https://apidae.dev/api/v1
+paths:
+  /device/{deviceId}:
+    $ref: paths/_index.yaml
+components:
+  headers:
+    $ref: headers/_index.yaml
+  parameters:
+    $ref: parameters/_index.yaml
+  schemas:
+    $ref: schemas/_index.yaml
+  requestBodies:
+    $ref: requestBodies/_index.yaml
+  responses:
+    $ref: responses/_index.yaml
+  securitySchemes:
+    $ref: securitySchemes/_index.yaml
+tags:
+  - name: device
+    description: all operations pertaining to Devices.
+  - name: user
+    description: all operations pertaining to Users.

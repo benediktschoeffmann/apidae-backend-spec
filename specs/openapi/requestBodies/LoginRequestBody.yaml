@@ -1,0 +1,16 @@
+required: true
+description: This is a login requestbody.
+content:
+  application/json:
+    schema:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          example: user@test.me
+        password:
+          type: string
+          format: password

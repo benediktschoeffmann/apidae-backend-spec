@@ -1,0 +1,10 @@
+version: 0.0.1
+title: apidae api
+description: apidae api for device <-> backend communication.
+license:
+  name: MIT
+  url: https://opensource.org/licenses/MIT
+contact:
+  name: Benedikt Schoeffmann
+  url: https://apidae.dev
+  email: benedikt.schoeffmann@gmail.com

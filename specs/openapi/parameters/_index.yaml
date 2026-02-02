@@ -1,0 +1,4 @@
+# path parameters
+userId:
+  $ref: path/userId.yaml
+  

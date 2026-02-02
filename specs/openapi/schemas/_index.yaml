@@ -1,0 +1,12 @@
+# Device
+Device:
+  $ref: Device/Device.yaml
+
+# Error
+UnexpectedError:
+  $ref: Errors/UnexpectedError.yaml
+
+# User
+User:
+  $ref: User/User.yaml
+

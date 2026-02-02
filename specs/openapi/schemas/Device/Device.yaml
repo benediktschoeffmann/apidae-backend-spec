@@ -1,0 +1,19 @@
+title: Device
+type: object
+description: A device. 
+properties:
+  deviceId:
+    type: integer
+    description: The device id.
+    format: int64
+  serial:
+    description: The serial number of the device.
+    type: string
+  latitude:
+    description: The geographical latitude of the device.
+    type: number
+    format: double
+  longitude:
+    description: The geographical latitude of the device.
+    type: number
+    format: double

@@ -1,0 +1,14 @@
+type: object
+title: Unexpected Error. 
+required:
+  - code
+  - message
+properties:
+  code:
+    type: integer
+    example: 1
+    format: int32
+  message:
+    description: A message describing the nature of the error. 
+    example: Could not establish a connection to the database.
+    type: string

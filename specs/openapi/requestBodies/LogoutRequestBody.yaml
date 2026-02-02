@@ -1,0 +1,12 @@
+required: true
+description: This is a logout requestbody.
+content:
+  application/json:
+    schema:
+      type: object
+      required:
+        - username
+      properties:
+        username:
+          type: string
+          example: user@test.me

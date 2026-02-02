@@ -1,0 +1,25 @@
+title: Packet
+type: object
+required: 
+  - deviceId
+  - packetId
+  - createdAt
+  - entries
+description: A packet message from a device.
+properties:
+  deviceId:
+    type: integer
+    format: int64
+    description: the device this packet belongsTo
+    example: 12345
+  packetId:
+    type: integer
+    format: int64
+    description: the id of the sent package as created by the device.
+    example: 12345
+  createdAt:
+    type: datetime
+  entries:
+    type: array
+    items:
+      $ref: PacketEntry.yaml

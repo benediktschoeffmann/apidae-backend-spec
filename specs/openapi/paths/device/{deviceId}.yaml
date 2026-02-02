@@ -1,0 +1,16 @@
+post:
+  tags:
+    - device
+  description: Recieves a packet and enters it into the database. 
+  operationId: postPacket
+  requestBody: 
+    content:
+      application/json:
+        schema:
+          $ref: ../../requestBodies/PacketRequestBody.yaml
+            
+  responses: 
+    201: 
+      description: Created.
+    default:
+      $ref: ../../responses/Errors/UnexpectedErrorResponse.yaml

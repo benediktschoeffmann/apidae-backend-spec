@@ -1,0 +1,28 @@
+# Error Responses
+BadRequestResponse:
+  $ref: Errors/BadRequestResponse.yaml
+
+ForbiddenResponse:
+  $ref: Errors/ForbiddenResponse.yaml
+
+NotAuthorizedResponse:
+  $ref: Errors/NotAuthorizedResponse.yaml
+
+NotFoundResponse:
+  $ref: Errors/NotFoundResponse.yaml
+
+NullResponse:
+  $ref: Errors/NullResponse.yaml
+
+UnexpectedErrorResponse:
+  $ref: Errors/UnexpectedErrorResponse.yaml
+
+# Standard HTTP Responses
+CreatedResponse:
+  $ref: Http/CreatedResponse.yaml
+
+DeletedResponse:
+  $ref: Http/DeletedResponse.yaml
+
+UpdatedResponse:
+  $ref: Http/UpdatedResponse.yaml

@@ -1,0 +1,4 @@
+ApiKey:
+  $ref: ApiKey.yaml
+BasicHttpAuth:
+  $ref: BasicHttpAuth.yaml

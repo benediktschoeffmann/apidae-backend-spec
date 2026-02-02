@@ -1,0 +1,6 @@
+title: Unexpected Error. 
+description: Unexpected Backend Error. 
+content:
+  application/json:
+    schema:
+      $ref: ../../schemas/Errors/UnexpectedError.yaml

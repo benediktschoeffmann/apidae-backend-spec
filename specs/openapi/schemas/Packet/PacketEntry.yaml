@@ -1,0 +1,14 @@
+title: PacketEntry
+type: object
+required:
+  - sensorType
+  - sensorData
+description: A single value from a sensor 
+properties:
+  sensorType:
+    type: string
+    example: DHT
+  sensorData:
+    type: number
+    format: double
+    
