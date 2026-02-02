@@ -4,7 +4,6 @@ info:
   version: 1.0.0
   contact:
     email: "support@apidae.dev"
-  license: "MIT"
 servers:
     - url: "api.apidae.dev"
       description: "Apidae Server"
@@ -120,7 +119,6 @@ components:
         name: "serial"
         in: headers
 tags:
-  - device
-externalDocs:
-  - description: "Apidae user manual"
-    url: "doc.apidae.dev"
+  - tag: 
+    name: device
+    description: "Operations about devices"
