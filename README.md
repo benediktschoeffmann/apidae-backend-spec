@@ -15,5 +15,3 @@
 - [User Device Register](flowcharts/user-device-register.mmd)
 - [User Profile Options](flowcharts/user-options.mmd)
 - [Job Workflow](flowcharts/job-workflow.mmd)
-
-
