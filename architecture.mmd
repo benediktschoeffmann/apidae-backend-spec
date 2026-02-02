@@ -1,0 +1,28 @@
+architecture-beta
+    group api(cloud)[API]
+
+    service db(database)[Database] in api
+    service qrcode(server)[QRCode] in api
+    service disk(disk)[Storage] in api
+    service server(server)[Server] in api
+
+    db:L -- R:server
+    server:T -- B:qrcode
+    disk:B -- T:db
+
+group embedded(setting)[Embedded Systems]
+    service reader(reader)[Card Reader] in embedded
+    service temperature(reader)[Temperature] in embedded
+    service humidity(reader)[Humidity] in embedded
+    service noise(reader)[Noise] in embedded
+    service sensor(sensor)[Sensor] in embedded
+    service etc(etc)[Etc] in embedded
+
+    reader:L -- R:sensor
+    temperature:R -- L:sensor
+    humidity:T -- B:sensor
+    noise:T -- B:sensor
+    etc:T -- B:sensor
+
+
+
