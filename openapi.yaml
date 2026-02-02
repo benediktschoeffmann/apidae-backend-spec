@@ -50,8 +50,13 @@ components:
           serial:
             type: integer
             format: int32
+          name:
+            type: string
+            description: "A human readable name for the device."
           activation:
             $ref: '#/components/schemas/DateTime'
+          user:
+            $ref: '#/components/schemas/User'
       DeviceInput:
         type: object
         properties:
@@ -80,10 +85,30 @@ components:
           created:
             $ref: '#/components/schemas/DateTime'
       DateTime:
+        type: string
+        format: date-time
+      User:
         type: object
         properties:
-          datetime:
+          username:
             type: string
+          email:
+            type: string
+          password:
+            type: password
+          admin:
+            type: boolean
+            default: false
+          created:
+            $ref: '#/components/schemas/DateTime'
+          lastLogin:
+            $ref: '#/components/schemas/DateTime'
+          lastUpdate:
+            $ref: '#/components/schemas/DateTime'
+        required:
+          - username
+          - email
+          - password
     responses:
       OkResponse:
         description: "Operation concluded successfully."
@@ -119,6 +144,12 @@ components:
         name: "serial"
         in: headers
 tags:
-  - tag: 
+  - tag:
     name: device
     description: "Operations about devices"
+  - tag:
+    name: sensor
+    description: "Operations about sensors"
+  - tag:
+    name: user
+    description: "Operations about users"
