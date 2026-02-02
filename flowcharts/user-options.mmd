@@ -1,0 +1,27 @@
+---
+title: User Options
+description: Ein Flussdiagramm zur Darstellung der Optionen, die einem Benutzer zur Verfügung stehen.
+config:
+  layout: fixed
+---
+flowchart TB
+    0["0"] --> A["Benutzer Login"]
+    A --> B{"Aktion?"}
+    B -- Profil editieren --> K["Profil editieren"]
+    B -- Passwort zurücksetzen --> D["E-Mail erhalten"]
+    B -- Daten exportieren --> E["Export starten"]
+    B -- Account löschen --> F["Bestätigung"]
+    B -- Devices sehen --> M["Liste der Devices"]
+    M -- Devices updaten --> L["Device"]
+    L --> G["Speichern"]
+    G --> Z["OK"]
+    K --> G
+    D --> H["Neues Passwort setzen"]
+    H --> G
+    E --> I["Datei herunterladen"]
+    I --> Z
+    F --> J["Account gelöscht"]
+    J --> Z
+
+    0@{ shape: start}
+    Z@{ shape: stop}

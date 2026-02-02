@@ -1,0 +1,16 @@
+---
+title: Admin-Benutzerverwaltung
+description: Ein Flussdiagramm zur Verwaltung von Benutzern durch Admins.
+---
+
+graph TD
+    A[Admin Login] --> B[Benutzer anzeigen]
+    B --> C{Aktion?}
+    C -->|Deaktivieren| D[Benutzer deaktivieren]
+    C -->|Rollen zuweisen| E[Rollen auswählen]
+    E --> F[Rollen speichern]
+    C -->|Berichte| G[Aktivitätsbericht generieren]
+    D --> H[Bestätigung]
+    F --> H
+    G --> H
+

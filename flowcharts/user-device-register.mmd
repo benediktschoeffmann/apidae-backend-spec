@@ -1,0 +1,7 @@
+flowchart TB
+    A["Benutzer Login"] --> B["Device Registrieren"]
+    B --> C["Serial eingeben"]
+    C -- Serial noch nicht vorhanden --> D["Gerät aktiv"]
+    C -- Serial bereits vorhanden --> H["Fehler"]
+    D --> G["Bestätigen"]
+    H --> G

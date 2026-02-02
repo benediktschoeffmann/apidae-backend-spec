@@ -1,0 +1,10 @@
+# Device Data Flowchart
+graph TD
+    A[Sensor erfasst Daten] --> B[Authentifizierung]
+    B --> C{Authentifiziert?}
+    C -->|Ja| D[Daten zum Server]
+    C -->|Nein| E[Fehler]
+    D --> F[Job verarbeitet Daten]
+    F --> G[Post-Processing]
+    G --> H[Benachrichtigung senden]
+    H --> I[Benutzer informiert]

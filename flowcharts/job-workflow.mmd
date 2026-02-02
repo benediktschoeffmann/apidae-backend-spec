@@ -1,0 +1,8 @@
+# Job Workflow Flowchart
+graph TD
+        I[Datenpaket schnüren] --> |Daten senden| A[Daten empfangen]
+        A[Daten empfangen] --> | Daten verarbeiten| C[Post-Processing]
+        C --> |Jobs haben Alarme ausgelöst| D[Benachrichtigung an User]
+        C --> |Jobs haben keine Alarme ausgelöst| H
+        D --> H[Logs speichern]
+        H --> E[OK]
