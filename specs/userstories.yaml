@@ -7,27 +7,38 @@ Stories:
   - "As an *Admin*,
     I want to *manage*
     *users*"
+
   - "As an *Admin*,
     I want to *deactivate* a *user account*
     so that I can *prevent access to the platform*.
+
   - "As an *Admin*,
     I want to *assign roles* to *users*
     so that I can *control access to features*."
+
   - "As an *Admin*,
     I want to *generate reports* on *user activity*
     so that I can *ensure compliance with policies*."
-  - "As a *User*,
-    I want to *register* my *devices*
-    so that I can *monitor* their *data*."
+    
+  - "As an *Admin*,
+    I want to *edit / delete / create* *SensorTypes*"
+  - "As a *Admin*,
+    I want to get *logs*
+    from my *Jobs*"
+
   - "As a *Device*,
     I want to *Send* *SensorData*
     so that it can be *recorded, viewed and analyzed*.""
-  - "As a *User*,
-    I want to *view* my *device* data
-    so that I can *track* performance *over time*."
   - "As a *Device*,
     I want to *authenticate securely*
     so that I can *protect data integrity*. "
+
+  - "As a *User*,
+    I want to *register* my *devices*
+    so that I can *monitor* their *data*."
+  - "As an *User*,
+    I want to *view* my *device* data
+    so that I can *track* performance *over time*."
   - "As an *User*,
     i want to *update* my *profile information*
     so that my *account details are current*."
@@ -37,22 +48,20 @@ Stories:
   - "As an *User*,
     I want to *delete* my *account*
     so that I can *remove my presence from the platform*."
-  - "As a *User*,
+  - "As an *User*,
     I want to *export* my *data*
     so that I can *analyze it externally*."
-  - "As a *User*,
-    I want to get *logs*
-    from my *Devices*"
-  - "As a *User*,
+  - "As an *User*,
     I want to get *logs*
     from my *Jobs*"
-  - "As a *Admin*,
-    I want to get *logs*
-    from my *Jobs*"
-  - "As a *User*,
+  - "As an *User*,
     I want to *receive notifications*
     so that I can *stay informed about important events*."
+
   - "As a *Job*, my task is to
     - *process incoming data*
     - *postProcess data*
     - *send notifications*
+
+
+
