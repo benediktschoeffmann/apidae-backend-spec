@@ -1,0 +1,99 @@
+Table Device [headercolor: #175e7a] {
+	id integer [ pk, increment, not null, unique ]
+	serial varchar(20) [ not null, unique ]
+	name varchar(255)
+	userId integer [ default: NULL ]
+	lastUpdate timestamp [ default: `NOW()` ]
+}
+
+Table User [headercolor: #175e7a] {
+	id integer [ pk, increment, not null, unique ]
+	name varchar(255) [ not null ]
+	email varchar(255) [ not null, unique ]
+	password varchar(255) [ not null ]
+	lastLogin datetime
+	roleId integer [ not null ]
+}
+
+Table SensorType [headercolor: #175e7a] {
+	id integer [ pk, increment, not null, unique ]
+	name varchar(255) [ not null, unique ]
+	model varchar(255)
+	type varchar(255) [ not null ]
+	values varchar(255) [ not null ]
+
+	Note: 'Die einzelnen SensorTypen'
+}
+
+Table Role [headercolor: #175e7a] {
+	id integer [ pk, increment, not null, unique ]
+	name varchar(255) [ not null ]
+	code varchar(255) [ not null ]
+	description varchar(255)
+}
+
+Table Paket [headercolor: #175e7a] {
+	id integer [ pk, increment, not null, unique ]
+	created timestamp [ not null, default: `NOW()` ]
+	serial varchar(255) [ not null ]
+	deviceId integer
+}
+
+Table PaketEntry [headercolor: #175e7a] {
+	id integer [ pk, increment, not null, unique ]
+	created timestamp [ not null ]
+	paketId integer [ not null ]
+	sensorTypeId integer [ not null ]
+}
+
+Table Job [headercolor: #175e7a] {
+	id integer [ pk, increment, not null, unique ]
+	created timestamp [ not null ]
+	jobTypeId integer [ not null ]
+	success boolean [ not null, default: 0 ]
+	startTime timestamp
+	endTime timestamp
+	finished boolean
+	userId integer
+}
+
+Table JobType [headercolor: #175e7a] {
+	id integer [ pk, increment, not null, unique ]
+	name varchar(255) [ not null ]
+	description varchar(255) [ not null ]
+	active boolean [ not null, default: 0 ]
+}
+
+Table DeviceKey [headercolor: #175e7a] {
+	id integer [ pk, increment, not null, unique ]
+	type varchar(255) [ not null ]
+	key varchar(255) [ not null ]
+}
+
+Ref fk_Device_userId_User {
+	Device.userId > User.id [ delete: no action, update: no action ]
+}
+
+Ref fk_User_roleId_Role {
+	User.roleId > Role.id [ delete: no action, update: no action ]
+}
+
+Ref fk_PaketEntry_sensorTypeId_SensorType {
+	PaketEntry.sensorTypeId > SensorType.id [ delete: no action, update: no action ]
+}
+
+Ref fk_PaketEntry_paketId_Paket {
+	PaketEntry.paketId > Paket.id [ delete: no action, update: no action ]
+}
+
+Ref fk_Paket_deviceId_Device {
+	Paket.deviceId > Device.id [ delete: no action, update: no action ]
+}
+
+Ref fk_Job_id_User {
+	Job.id - User.id [ delete: no action, update: no action ]
+}
+
+Ref fk_JobType_id_Job {
+	JobType.id < Job.jobTypeId [ delete: no action, update: no action ]
+}
