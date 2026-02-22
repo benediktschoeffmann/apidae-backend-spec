@@ -1,0 +1,101 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Project Apidae {
+  database_type: 'MySQL'
+}
+
+
+Table Users {
+  ~autoId
+  email varchar [unique, not null]
+  password varchar []
+  firstName varchar [not null]
+  lastName varchar [not null]
+  roleId int [ref: - Roles.id]
+  addressId int [ref: - Addresses.id]
+
+  ~created
+  ~lastUpdate
+  lastLogin timestamp
+}
+
+
+Table Addresses {
+  ~autoId
+  name varchar(50) [not null]
+  street varchar(50) [not null]
+  additional varchar(50) [not null]
+  number varchar(20) [not null]
+  postCode varchar(20) [not null]
+  city varchar[50] [not null]
+  countryId int [ref: < Countries.id]
+
+  ~created
+  ~lastUpdate
+}
+
+Table Countries {
+  ~autoId
+  name varchar(50) [not null]
+  code varchat(3) [not null]
+
+  ~created
+  ~lastUpdate
+}
+
+Table Roles {
+  ~autoId
+  name varchar(20) [not null, unique]
+  level int [not null]
+
+  ~created
+  ~lastUpdate
+}
+
+Table Devices {
+  ~autoId
+  serial varchar[12] [not null, unique]
+  userId int [ref: < Users.id]
+  addressId int [ref: - Addresses.id]
+
+}
+
+Table SensorTypes {
+  ~autoId
+  name varchar[20] [unique]
+  description varchar[255] [default: null]
+  ~created
+  ~lastUpdate
+}
+
+Table Pakets {
+  ~autoId
+  serial varchar(20) [not null]
+  deviceId int [default: null, ref: < Devices.id]
+  userId int [default: null, ref: - Users.id]
+  ~created
+}
+
+Table PaketEntries {
+  ~autoId
+  paketId int [ref: < Pakets.id]
+  sensorType varchar(20) [default: null]
+  sensorTypeId int [ref: - SensorTypes.id]
+  value decimal(10,4)
+  ~created
+}
+
+TablePartial autoId {
+  id int [pk, increment]
+}
+
+TablePartial created {
+  created timestamp [default: `now()`]
+}
+
+TablePartial lastUpdate {
+  lastUpdate timestamp [default: `now()`]
+}
+
+
