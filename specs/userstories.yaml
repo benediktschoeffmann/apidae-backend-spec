@@ -19,7 +19,7 @@ Stories:
   - "As an *Admin*,
     I want to *generate reports* on *user activity*
     so that I can *ensure compliance with policies*."
-    
+
   - "As an *Admin*,
     I want to *edit / delete / create* *SensorTypes*"
   - "As a *Admin*,
@@ -63,5 +63,4 @@ Stories:
     - *postProcess data*
     - *send notifications*
 
-
-
+ - ""
